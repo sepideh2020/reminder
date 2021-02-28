@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+    text-align: center;
+    background-color: beige;
+}
+th, td {
+  padding: 15px;
+}
+   </style>
+<h1>all category</h1>
+  {% if object_list %}
+      <table  >
+      <tr>
+            <th >name</th>
+        </tr>
+      {% for category in object_list %}
+        <tr>
+            <td><a href="{% url 'list_task_category' category.id %}">{{ category.name }}</a></td>
+        </tr>
+      {% endfor %}
+      </table>
+  {% else %}
+    <p>No category are available.</p>
+  {% endif %}
+{% endblock %}
+
+
+
+
+
+
+
